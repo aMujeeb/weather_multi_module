@@ -1,5 +1,6 @@
 package com.mujapps.weather.ui.home
 
+import androidx.lifecycle.ViewModel
 import com.mujapps.weather.data.modals.WeatherResponse
 import com.mujapps.weather.data.repository.WeatherRepository
 import kotlinx.coroutines.CoroutineScope
@@ -9,8 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class HomeScreenViewModel {
-    private val mRepository = WeatherRepository()
+class HomeScreenViewModel(private val mRepository : WeatherRepository) : ViewModel() {
 
     private val _state = MutableStateFlow<HomeScreenState>(HomeScreenState.Loading)
     val mState = _state.asStateFlow()

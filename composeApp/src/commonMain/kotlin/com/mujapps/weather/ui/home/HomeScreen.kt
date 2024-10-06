@@ -4,9 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.mujapps.weather.ui.components.ErrorScreen
@@ -14,12 +12,7 @@ import com.mujapps.weather.ui.components.HomeContent
 import com.mujapps.weather.ui.components.LoadingScreen
 
 @Composable
-fun HomeScreen() {
-    val viewModel = remember { HomeScreenViewModel() }
-
-    LaunchedEffect(Unit) {
-        viewModel.fetchWeather("London")
-    }
+fun HomeScreen(viewModel : HomeScreenViewModel) {
 
     val state = viewModel.mState.collectAsState()
 
